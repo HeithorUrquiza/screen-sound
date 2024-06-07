@@ -1,6 +1,6 @@
 ﻿namespace ScreenSoundEdit.Modelos;
 
-class Musica
+internal class Musica
 {
     public Musica(string nome, Banda artista, int duracao)
     {

@@ -114,7 +114,7 @@ void AvaliarBanda(Dictionary<string, Banda> bandas)
         Console.Write("Digite o valor da nota: ");
 
         int nota = int.Parse(Console.ReadLine()!);
-        bandas[bandaEscolhida].AdicionarNota(nota);
+        bandas[bandaEscolhida].AdicionarNota(new Avaliacao(nota));
 
         Console.WriteLine("\nRegistrando nota. Aguarde...");
         Thread.Sleep(2500);
@@ -140,16 +140,7 @@ void ExibirDetalhes(Dictionary<string, Banda> bandas)
 
     if (bandas.ContainsKey(bandaEscolhida))
     {
-        Console.WriteLine($"\nA banda {bandaEscolhida} tem uma média de aprovação de {bandas[bandaEscolhida].Media:F2}");
-        Console.WriteLine("\n---------------------------------------------------------");
-
-        bandas[bandaEscolhida].ExibirDiscografia();
-
-        foreach (var album in bandas[bandaEscolhida].Albuns)
-        {
-            Console.WriteLine("\n---------------------------------------------------------");
-            album.ExibirMusicasDoAlbum();
-        }
+        bandas[bandaEscolhida].ExibirDetalhes();
 
         Console.WriteLine("\nDigite uma tecla para votar ao menu principal");
         Console.ReadKey();
@@ -170,9 +161,9 @@ void ExecutarPrograma()
     var bandasRegistradas = new Dictionary<string, Banda>()!;
     var skillet = new Banda("Skillet");
 
-    skillet.AdicionarNota(10);
-    skillet.AdicionarNota(9);
-    skillet.AdicionarNota(10);
+    skillet.AdicionarNota(new Avaliacao(10));
+    skillet.AdicionarNota(new Avaliacao(9));
+    skillet.AdicionarNota(new Avaliacao(10));
 
     bandasRegistradas.Add("Skillet", skillet);
 

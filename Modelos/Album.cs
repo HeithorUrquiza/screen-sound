@@ -1,6 +1,6 @@
 ﻿namespace ScreenSoundEdit.Modelos;
 
-class Album
+internal class Album
 {
     private List<Musica> musicas = [];
 
