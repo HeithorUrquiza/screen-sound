@@ -27,7 +27,7 @@ internal class Banda
     }
 
     public void AdicionarNota(Avaliacao nota)
-    {
+    {  
         notas.Add(nota);
     }
 
